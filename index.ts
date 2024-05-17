@@ -62,7 +62,7 @@ const steps: { [key: string]: { message: string; choices: Choice[] } } = {
         ]
     },
     killed: {
-        message: chalk.bgRedBright.blackBright("Oh noooo, Ghost Killed You, Finding the key in the bunch took too long. "),
+        message: chalk.bgRedBright.blackBright("Oh noooo, Ghost Killed You, Finding the key in the room took too long. "),
         choices: []
     },
     outside: {
