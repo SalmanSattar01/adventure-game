@@ -12,21 +12,21 @@ type Choice = {
 // Define the steps of the game
 const steps: { [key: string]: { message: string; choices: Choice[] } } = {
     start: {
-        message: chalk.bgGreenBright("You wake up in a mysterious room. What do you do?"),
+        message: chalk.bgGreenBright.blueBright("You wake up in a mysterious room. What do you do?"),
         choices: [
             { text: "Explore the room", nextStep: "room" },
             { text: "Go back to sleep", nextStep: "sleep" }
         ]
     },
     room: {
-        message: chalk.bgGreenBright("You find a door with a lock. What do you do?"),
+        message: chalk.bgGreenBright.blueBright("You find a door with a lock. What do you do?"),
         choices: [
             { text: "Find the key to unlock the door", nextStep: "roomplaces" },
             { text: "Ignore the key and try to break the door", nextStep: "breakDoor" }
         ]
     },
     roomplaces: {
-        message: chalk.bgGreenBright("There is an Almira, Drawer and Key Hanger. Where will you find the key?"),
+        message: chalk.bgGreenBright.blueBright("There is an Almira, Drawer and Key Hanger. Where will you find the key?"),
         choices: [
             { text: "In Almira", nextStep: "ghost" },
             { text: "In Drawer", nextStep: "bloodedhand" },
@@ -34,49 +34,49 @@ const steps: { [key: string]: { message: string; choices: Choice[] } } = {
         ]
     },
     ghost: {
-        message: chalk.bgGreenBright("A ghost appeared and is trying to kill you. What will you do now?"),
+        message: chalk.bgGreenBright.blueBright("A ghost appeared and is trying to kill you. What will you do now?"),
         choices: [
             { text: "Find the key to unlock the door", nextStep: "killed" },
             { text: "Ignore the key and try to break the door", nextStep: "outside" }
         ]
     },
     bloodedhand: {
-        message: chalk.bgGreenBright("There is a severed hand with lots of blood, but no key. What will you do now?"),
+        message: chalk.bgGreenBright.blueBright("There is a hand cut with lots of blood, but no key. What will you do now?"),
         choices: [
             { text: "Find the key to unlock the door", nextStep: "roomplaces" },
             { text: "Ignore the key and try to break the door", nextStep: "breakDoor" }
         ]
     },
     bigbunchofkey: {
-        message: chalk.bgGreenBright("There is a bunch of keys on the hanger. What will you do now?"),
+        message: chalk.bgGreenBright.blueBright("There is a bunch of keys on the hanger. What will you do now?"),
         choices: [
             { text: "Try to unlock the door with the bunch of keys", nextStep: "keynotfound" },
             { text: "Ignore the keys and try to break the door", nextStep: "outside" }
         ]
     },
     keynotfound: {
-        message: chalk.bgGreenBright("The key is not in the bunch. What will you do now?"),
+        message: chalk.bgGreenBright.blueBright("The key is not in the bunch. What will you do now?"),
         choices: [
             { text: "Find the key to unlock the door", nextStep: "roomplaces" },
             { text: "Ignore the key and try to break the door", nextStep: "breakDoor" }
         ]
     },
     killed: {
-        message: chalk.bgRedBright("Oh noooo, Ghost Killed You, Finding the key in the bunch took too long. "),
+        message: chalk.bgRedBright.blackBright("Oh noooo, Ghost Killed You, Finding the key in the bunch took too long. "),
         choices: []
     },
     outside: {
-        message: chalk.bgGreenBright("Congratulations! You've escaped from the mysterious room."),
+        message: chalk.bgGreenBright.blueBright("Congratulations! You've escaped from the mysterious room."),
         choices: []
     },
     breakDoor: {
-        message: chalk.bgGreenBright("You hurt yourself while trying to break the door, but it's not broken yet."),
+        message: chalk.bgGreenBright.blueBright("You hurt yourself while trying to break the door, but it's not broken yet."),
         choices: [
             { text: "Go back to exploring the room", nextStep: "room" }
         ]
     },
     sleep: {
-        message: chalk.bgGreenBright("You wake up later and find yourself still in the room."),
+        message: chalk.bgGreenBright.blueBright("You wake up later and find yourself still in the room."),
         choices: [
             { text: "Try again", nextStep: "start" }
         ]
@@ -92,7 +92,7 @@ async function playGame(step: string) {
 
     // Check if the current step has choices
     if (currentStep.choices.length === 0) {
-        console.log(chalk.bgGreenBright('Game over!'));
+        console.log(chalk.bgGreenBright.red('Game over!'));
         return;
     }
 
